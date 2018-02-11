@@ -1,0 +1,73 @@
+#guardar{
+    margin-left: 3px; 
+    width: 80px;
+}
+
+button#agregar{
+    margin-left: 3px;  
+    width: 88px;
+}
+
+div#agregarContacto{
+    padding: 15px 0px 15px 0px;
+}
+
+a#agregar{
+    color: white;
+}
+
+#savebutton{
+    color:black;
+}
+
+#savebutton:hover{
+    color:#103c6c;
+}
+
+
+#editbutton{
+    border: none;
+    background-color: transparent;
+}
+
+
+.hipervinculo{
+    text-decoration: none !important;
+    color: black;
+}
+
+#jsptitle{
+    margin-left: 35%;
+}
+
+.titulopink{
+    background-color: #e4e4e4;
+}
+
+.registroslightgrey{
+    /*color: #62a5c4;*/
+    background-color: #f2f2f2;
+}
+
+.inputtext{
+    font-family: cursive;
+    font-size: initial;
+    border-radius: 0;
+    font-weight: 400;
+    border: none;
+    border-bottom: 1px solid rgb(225, 227, 232);
+    color: rgb(135, 137, 142);
+    vertical-align: baseline;
+    width: 100%;
+    text-shadow: none;
+    padding: 20px;
+}
+.inputtext:focus{
+    outline: none;
+    border-color: rgb(140, 212, 245);
+}
+
+.b-r{
+    border-right: 1px solid rgb(225, 227, 232);
+
+}
