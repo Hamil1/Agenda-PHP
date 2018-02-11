@@ -54,12 +54,12 @@
        <?php for($i = 0; $i<= 10; $i++){?>
                     <tr> 
                        <td >Id</td>
-                       <td id="<%out.print(agenda.getId());%>">Nombre</strong></td>
-                       <td id="<%out.print(agenda.getId());%>">Apellido</strong></td>
-                       <td id="<%out.print(agenda.getId());%>">Telefono 1</strong></td>
-                       <td id="<%out.print(agenda.getId());%>">Telefono 2</strong></td>
-                       <td id="<%out.print(agenda.getId());%>">Dirección</strong></td>
-                       <td id="<%out.print(agenda.getId());%>">Correo</strong></td>
+                       <td id="">Nombre</strong></td>
+                       <td id="">Apellido</strong></td>
+                       <td id="">Telefono 1</strong></td>
+                       <td id="">Telefono 2</strong></td>
+                       <td id="">Dirección</strong></td>
+                       <td id="">Correo</strong></td>
                        <td ><button data-toggle="tooltip" title="Editar" id="editbutton"><a class="fa fa-pencil hipervinculo" id="" data-toggle="modal" href="Edit.php#myModal2"></a></button></td>
                        
                        
