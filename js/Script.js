@@ -16,14 +16,13 @@ $(document).ready(function(){
             });
     }); 
     
-    function guardarDatos(){
+    $('button.guardarContacto').on('click',function(){
         var nombre = $("input[name='nombre']").val();
         var apellido = $("input[name='apellido']").val();
         var telefono = $("input[name='telefono']").val();
         var celular = $("input[name='celular']").val();
         var direccion = $("input[name='direccion']").val();
         var correo = $("input[name='correo']").val();
-        alert("Esta entrando");
         //Mandando la informacion del cliente al servidor
         $.ajax({
             type: "POST",
@@ -33,6 +32,7 @@ $(document).ready(function(){
                 alert('Guardado!');
             }
         });
-    }
+    });
+    
 });
 
