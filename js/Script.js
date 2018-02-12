@@ -27,11 +27,31 @@ $(document).ready(function(){
         //Mandando la informacion del cliente al servidor
         $.ajax({
             type: "POST",
-            url: "contactosControlador.php",
+            url: "controladores/add.php",
             data: "action="+action+"&nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&celular="+celular+"&direccion="+direccion+"&correo="+correo,
             success: function(msg){
                 alert('Guardado!');
             }
+        });
+        //Para recargar la página
+        location.reload();
+    });
+    
+    $('a.hipervinculo').on('click',function(){
+        var id = $(this).attr('id');
+        $(this).load('vistas/editVista.php',{id: id},function(){$(this).modal('show')});
+    });
+    
+    $('button.cerrarEditar').on('click',function(){
+        $('#editarContactoModal').modal().hide();
+    });
+    
+    $('button.editarContacto').on('click',function(){
+        //Mandando la informacion del cliente al servidor
+        $.ajax({
+            type: "POST",
+            url: "controladores/update.php",
+            data: "id="+id
         });
     });
     

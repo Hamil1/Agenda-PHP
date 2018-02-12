@@ -15,7 +15,7 @@ class contactosControlador {
         require_once("modelos/contactosModelo.php");
         //Dependiendo de la condicion que venga del cliente se ejecutará un método
         if(isset($_POST['action']) && !empty($_POST['action'])){
-            $this->guardarContacto();
+                $this->guardarContacto();
         }
     }
     //Funcion para traer la vista con los contactos
@@ -37,6 +37,6 @@ class contactosControlador {
         $direccion = $_POST['direccion'];
         $correo = $_POST['correo'];
         $contactos = new contactosModelo();
-        $contactos->
+        $contactos->insertContacto($nombre, $apellido, $telefono, $celular, $direccion, $correo);
     }
 }

@@ -32,7 +32,7 @@
             <!--Titulo-->
             <thead>
                 <tr>
-                    <th class="registroslightgrey">Código</th>
+                    <th class="registroslightgrey">#</th>
                     <th class="registroslightgrey">Nombre</th>
                     <th class="registroslightgrey">Apellido</th>
                     <th class="registroslightgrey">Telefono</th>
@@ -45,7 +45,7 @@
         
             <tbody>
                 <!--Registros-->
-               <?php foreach ($contactos as $contacto){$i = ($i == 6)?0:$i+1; ?>
+               <?php foreach ($contactos as $contacto){$i = ($i == 5)?0:$i+1; ?>
                 <tr class="<?= $colores[$i] ?>"> 
                     <td ><?= $contacto["id"] ?></td>
                     <td id=""><strong><?= $contacto["nombre"] ?></strong></td>
@@ -54,7 +54,7 @@
                     <td id=""><strong><?= $contacto["celular"] ?></strong></td>
                     <td id=""><strong><?= $contacto["direccion"] ?></strong></td>
                     <td id=""><strong><?= $contacto["correo"] ?></strong></td>
-                    <td ><button data-toggle="tooltip" title="Editar" id="editbutton"><a class="fa fa-pencil hipervinculo" id="" data-toggle="modal" href="Edit.php#myModal2"></a></button></td>
+                    <td ><!--<button data-toggle="tooltip" title="Editar" id="editbutton"><a class="fa fa-pencil hipervinculo" id="<?= $contacto["id"] ?>" data-toggle="modal" data-target="#editarContactoModal"></a></button>--></td>
                 </tr>
                <?php } ?>
             </tbody>

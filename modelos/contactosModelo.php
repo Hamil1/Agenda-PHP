@@ -32,7 +32,7 @@ class contactosModelo {
     }
     //Método para insertar un contacto
     public function insertContacto($nombre, $apellido, $telefono, $celular, $direccion, $correo){
-        $stmt = $this->db->prepare("INSERT INTO contactos VALUES(?,?,?,?,?,?)");
+        $stmt = $this->db->prepare("INSERT INTO contactos VALUES('',?,?,?,?,?,?,'')");
         $stmt->bindParam(1, $nombre);
         $stmt->bindParam(2, $apellido);
         $stmt->bindParam(3, $telefono);
@@ -40,5 +40,6 @@ class contactosModelo {
         $stmt->bindParam(5, $direccion);
         $stmt->bindParam(6, $correo);
         $stmt->execute();
+        echo 'Insert Exitoso en el controlador';
     }
 }
