@@ -14,6 +14,11 @@
 	<link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0\css\font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/sweetalert-master/dist/sweetalert.css">
         <link rel="stylesheet" type="text/css" href="css/Style.css">
+        <?php 
+            require_once 'modelos/contactosModelo.php';
+            $contactos = new contactos();
+            $contactos = $contactos->getContactos();
+        ?>
          <title>Agenda</title>
         </head>
     <body>
@@ -22,7 +27,7 @@
         </div>
         <table class="table table-hover table-bordered table-striped">
         
-            <!--Titulos-->
+            <!--Titulo-->
             <thead>
                 <tr>
                     <th class="registroslightgrey">Código</th>
@@ -38,15 +43,15 @@
         
             <tbody>
                 <!--Registros-->
-               <?php for($i = 0; $i<= 10; $i++){?>
-                <tr class="success"> 
-                    <td >Id</td>
-                    <td id="">Nombre</strong></td>
-                    <td id="">Apellido</strong></td>
-                    <td id="">Telefono 1</strong></td>
-                    <td id="">Telefono 2</strong></td>
-                    <td id="">Dirección</strong></td>
-                    <td id="">Correo</strong></td>
+               <?php foreach ($contactos as $contacto){ ?>
+                <tr class="<?= $contacto["status_color"] ?>"> 
+                    <td ><?= $contacto["id"] ?></td>
+                    <td id=""><strong><?= $contacto["nombre"] ?></strong></td>
+                    <td id=""><strong><?= $contacto["apellido"] ?></strong></td>
+                    <td id=""><strong><?= $contacto["telefono"] ?></strong></td>
+                    <td id=""><strong><?= $contacto["celular"] ?></strong></td>
+                    <td id=""><strong><?= $contacto["direccion"] ?></strong></td>
+                    <td id=""><strong><?= $contacto["correo"] ?></strong></td>
                     <td ><button data-toggle="tooltip" title="Editar" id="editbutton"><a class="fa fa-pencil hipervinculo" id="" data-toggle="modal" href="Edit.php#myModal2"></a></button></td>
                 </tr>
                <?php } ?>

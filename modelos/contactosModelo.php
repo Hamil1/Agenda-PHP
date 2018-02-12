@@ -15,8 +15,8 @@ class contactos {
     private $db;
     private $contactos;
     public function __construct() {
-        require_once 'conexion.php';
-        $this->db = conexion::conectar();
+        require_once 'conexionModelo.php';
+        $this->db = conexionModelo::conectar();
         $this->contactos = array();
     }
     
@@ -25,7 +25,7 @@ class contactos {
         $consulta = $this->db->query("SELECT * FROM contactos");
         //Bucle para obtener los registros
         while($filas = $consulta->fetch(PDO::FETCH_ASSOC)){
-            $this->contactos = $filas;
+            $this->contactos[] = $filas;
         }
         //Retornando los registros dentro de un array
         return $this->contactos;
