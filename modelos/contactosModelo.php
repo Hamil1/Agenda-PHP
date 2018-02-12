@@ -30,4 +30,15 @@ class contactosModelo {
         //Retornando los registros dentro de un array
         return $this->contactos;
     }
+    //Método para insertar un contacto
+    public function insertContacto($nombre, $apellido, $telefono, $celular, $direccion, $correo){
+        $stmt = $this->db->prepare("INSERT INTO contactos VALUES(?,?,?,?,?,?)");
+        $stmt->bindParam(1, $nombre);
+        $stmt->bindParam(2, $apellido);
+        $stmt->bindParam(3, $telefono);
+        $stmt->bindParam(4, $celular);
+        $stmt->bindParam(5, $direccion);
+        $stmt->bindParam(6, $correo);
+        $stmt->execute();
+    }
 }

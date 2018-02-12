@@ -23,11 +23,12 @@ $(document).ready(function(){
         var celular = $("input[name='celular']").val();
         var direccion = $("input[name='direccion']").val();
         var correo = $("input[name='correo']").val();
+        var action = "add";
         //Mandando la informacion del cliente al servidor
         $.ajax({
             type: "POST",
-            url: "",
-            data: "nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&celular="+celular+"&direccion="+direccion+"&correo="+correo,
+            url: "contactosControlador.php",
+            data: "action="+action+"&nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&celular="+celular+"&direccion="+direccion+"&correo="+correo,
             success: function(msg){
                 alert('Guardado!');
             }
