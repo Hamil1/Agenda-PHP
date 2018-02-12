@@ -23,7 +23,7 @@ $(document).ready(function(){
         var celular = $("input[name='celular']").val();
         var direccion = $("input[name='direccion']").val();
         var correo = $("input[name='correo']").val();
-        alert("esta entrando");
+        alert("Esta entrando");
         //Mandando la informacion del cliente al servidor
         $.ajax({
             type: "POST",
