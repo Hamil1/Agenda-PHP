@@ -29,22 +29,5 @@
             </div>
     </div>
     <script>
-    function guardarDatos(){
-        var nombre = $("input[name='nombre']").val();
-        var apellido = $("input[name='apellido']").val();
-        var telefono = $("input[name='telefono']").val();
-        var celular = $("input[name='celular']").val();
-        var direccion = $("input[name='direccion']").val();
-        var correo = $("input[name='correo']").val();
-        alert("esta entrando");
-        //Mandando la informacion del cliente al servidor
-        $.ajax({
-            type: "POST",
-            url: "",
-            data: "nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&celular="+celular+"&direccion="+direccion+"&correo="+correo,
-            success: function(msg){
-                alert('Guardado!');
-            }
-        });
-    }</script>
+    </script>
 </div>
