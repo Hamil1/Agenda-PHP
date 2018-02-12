@@ -34,5 +34,14 @@ $(document).ready(function(){
         });
     });
     
+    $('button.limpiarAgregar').on('click',function(){
+        $("input[name='nombre']").val("");
+        $("input[name='apellido']").val("");
+        $("input[name='telefono']").val("");
+        $("input[name='celular']").val("");
+        $("input[name='direccion']").val("");
+        $("input[name='correo']").val("");
+    });
+    
 });
 
