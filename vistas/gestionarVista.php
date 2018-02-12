@@ -16,11 +16,16 @@
         <link rel="stylesheet" type="text/css" href="css/Style.css">
         <?php 
             require_once 'modelos/contactosModelo.php';
+            require_once 'vistas/agregarVista.php';
         ?>
         </head>
     <body>
         <div id="agregarContacto">
-            <button id="agregar" type="button" class="btn btn-warning" data-toggle="tooltip modal" data-placement="bottom" title="Agregar"><a class="fa fa-plus fa-1x hipervinculo" id="agregar" aria-hidden="true"></a></button>
+            <span data-toggle="tooltip" data-placement="bottom" title="Agregar">
+                <button id="agregar" class="btn btn-warning" data-toggle="modal" data-target="#agregarContactoModal">
+                    <a class="fa fa-plus fa-1x hipervinculo" id="agregar" aria-hidden="true"></a>
+                </button>
+            </span>
         </div>
         <table class="table table-hover table-bordered table-striped">
         
