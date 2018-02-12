@@ -40,8 +40,8 @@
         
             <tbody>
                 <!--Registros-->
-               <?php foreach ($contactos as $contacto){ ?>
-                <tr class="<?= $contacto["status_color"] ?>"> 
+               <?php foreach ($contactos as $contacto){$i = ($i == 6)?0:$i+1; ?>
+                <tr class="<?= $colores[$i] ?>"> 
                     <td ><?= $contacto["id"] ?></td>
                     <td id=""><strong><?= $contacto["nombre"] ?></strong></td>
                     <td id=""><strong><?= $contacto["apellido"] ?></strong></td>
