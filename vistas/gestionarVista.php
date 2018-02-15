@@ -3,7 +3,6 @@
     <head>
         <?php 
             require_once 'modelos/contactosModelo.php';
-            require_once 'vistas/agregarVista.php';
         ?>
         </head>
     <body>
@@ -14,6 +13,8 @@
                 </button>
             </span>
         </div>
+        <div id="agregarContactoModal" class="modal fade" role="dialog"></div>
+        <div id="editarContactoModal" class="modal fade" role="dialog"></div>
         <table class="table table-hover table-bordered table-striped">
         
             <!--Titulo-->
@@ -41,7 +42,7 @@
                     <td id=""><strong><?= $contacto["celular"] ?></strong></td>
                     <td id=""><strong><?= $contacto["direccion"] ?></strong></td>
                     <td id=""><strong><?= $contacto["correo"] ?></strong></td>
-                    <td ><!--<button data-toggle="tooltip" title="Editar" id="editbutton"><a class="fa fa-pencil hipervinculo" id="<?= $contacto["id"] ?>" data-toggle="modal" data-target="#editarContactoModal"></a></button>--></td>
+                    <td ><button data-toggle="tooltip" title="Editar" id="editbutton" idcontacto="<?= $contacto["id"] ?>"><a class="fa fa-pencil hipervinculo" idcontacto="<?= $contacto["id"] ?>" data-toggle="modal" data-target="#editarContactoModal"></a></button></td>
                 </tr>
                <?php } ?>
             </tbody>

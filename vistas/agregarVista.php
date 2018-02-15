@@ -1,6 +1,3 @@
-<div id="agregarContactoModal" class="modal fade" role="dialog">
-    <script>
-    $("input[name='nombre']").val("");</script>
         <div class="modal-dialog">
              <!-- Modal content-->
             <div class="modal-content">
@@ -31,4 +28,3 @@
                 </div>
             </div>
     </div>
-</div>

@@ -1,21 +1,5 @@
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-    $('#guardar').click(function(){
-    swal({
-        title: "Está seguro?",
-        text: "Desea guardar los cambios?",
-        type: "info",
-        showCancelButton: true,
-        cancelButtonText: "Cancelar",
-        confirmButtonColor: "#8CD4F5",
-        confirmButtonText: "Sí, guardelo!",
-        closeOnConfirm: false
-        },
-            function(){
-              swal("Guardado!", "Sus cambios fueron grabados correctamente.", "success");
-            });
-    }); 
-    
+    $('[data-toggle="tooltip"]').tooltip();     
     $('button.guardarContacto').on('click',function(){
         var nombre = $("input[name='nombre']").val();
         var apellido = $("input[name='apellido']").val();
@@ -35,11 +19,6 @@ $(document).ready(function(){
         });
         //Para recargar la página
         location.reload();
-    });
-    
-    $('a.hipervinculo').on('click',function(){
-        var id = $(this).attr('id');
-        $(this).load('vistas/editVista.php',{id: id},function(){$(this).modal('show')});
     });
     
     $('button.cerrarEditar').on('click',function(){
@@ -62,6 +41,15 @@ $(document).ready(function(){
         $("input[name='celular']").val("");
         $("input[name='direccion']").val("");
         $("input[name='correo']").val("");
+    });
+    
+    $('button#editbutton').on('click',function(){
+        var id = $(this).attr('idcontacto');
+        $('#editarContactoModal').load('vistas/editVista.php',{id:id});
+    });
+    
+    $('button#agregar').on('click',function(){
+        $('#agregarContactoModal').load('vistas/agregarVista.php');
     });
     
 });
