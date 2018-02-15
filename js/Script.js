@@ -45,7 +45,9 @@ $(document).ready(function(){
     
     $('button#editbutton').on('click',function(){
         var id = $(this).attr('idcontacto');
-        $('#editarContactoModal').load('vistas/editVista.php',{id:id});
+        $.post('vistas/editVista.php',{id:id},function(htmlExterno){
+            $('#editarContactoModal').html(htmlExterno);
+        });
     });
     
     $('button#agregar').on('click',function(){

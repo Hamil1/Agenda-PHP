@@ -22,7 +22,6 @@
 
                 </div>
                 <div class="modal-footer" style="border: 0;    margin-bottom: -8px; margin-right: -2px;">
-                    <button type="button" class="btn btn-warning limpiarAgregar" style="color:white;">Limpiar</button>
                     <button type="button" class="btn btn-default guardarContacto" data-dismiss="modal" style="background-color:rgb(113, 188, 222);color:white;">Guardar</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:rgb(247, 81, 81);color:white;">Cerrar</button>
                 </div>
