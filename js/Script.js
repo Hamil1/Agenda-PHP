@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();     
+    $('[data-toggle="tooltip"]').tooltip();  
+    
     $('button.guardarContacto').on('click',function(){
         var nombre = $("input[name='nombre']").val();
         var apellido = $("input[name='apellido']").val();
@@ -21,28 +22,6 @@ $(document).ready(function(){
         location.reload();
     });
     
-    $('button.cerrarEditar').on('click',function(){
-        $('#editarContactoModal').modal().hide();
-    });
-    
-    $('button.editarContacto').on('click',function(){
-        //Mandando la informacion del cliente al servidor
-        $.ajax({
-            type: "POST",
-            url: "controladores/update.php",
-            data: "id="+id
-        });
-    });
-    
-    $('button.limpiarAgregar').on('click',function(){
-        $("input[name='nombre']").val("");
-        $("input[name='apellido']").val("");
-        $("input[name='telefono']").val("");
-        $("input[name='celular']").val("");
-        $("input[name='direccion']").val("");
-        $("input[name='correo']").val("");
-    });
-    
     $('button#editbutton').on('click',function(){
         var id = $(this).attr('idcontacto');
         $.post('vistas/editVista.php',{id:id},function(htmlExterno){
@@ -51,7 +30,10 @@ $(document).ready(function(){
     });
     
     $('button#agregar').on('click',function(){
-        $('#agregarContactoModal').load('vistas/agregarVista.php');
+        $.post('vistas/agregarVista.php',function(htmlExterno){
+            $('#agregarContactoModal').html(htmlExterno);
+        });
+        
     });
     
 });

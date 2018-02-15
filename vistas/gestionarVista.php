@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <?php 
-            require_once 'modelos/contactosModelo.php';
-        ?>
-        </head>
+    <head></head>
     <body>
         <div id="agregarContacto">
             <span data-toggle="tooltip" data-placement="bottom" title="Agregar">

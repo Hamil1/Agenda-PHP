@@ -1,4 +1,7 @@
-<?php $id = $_POST['id']; ?>
+<?php 
+    $id = $_POST['id'];
+    
+?>
     <input type="hidden" value="<?= $id ?>"/>
         <div class="modal-dialog">
              <!-- Modal content-->

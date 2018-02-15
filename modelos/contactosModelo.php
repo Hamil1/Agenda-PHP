@@ -42,4 +42,10 @@ class contactosModelo {
         $stmt->execute();
         echo 'Insert Exitoso en el controlador';
     }
+    //Método para obtener un contacto en especifico
+    public function getContacto($id){
+        $consulta = $this->db->query("SELECT * FROM contactos WHERE id = ".$id);
+        $fila = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $fila;
+    }
 }

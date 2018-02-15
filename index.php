@@ -13,8 +13,10 @@
         <link rel="stylesheet" type="text/css" href="css/sweetalert-master/dist/sweetalert.css">
         <link rel="stylesheet" type="text/css" href="css/Style.css">
     </head>
-    <body>
-        <?php require_once 'controladores/contactosControlador.php';
+    <body class="principal">
+        <?php 
+        require_once 'controladores/contactosControlador.php';
+        require_once 'modelos/contactosModelo.php';
         $contactosControlador = new contactosControlador();
         $contactosControlador->contactosVista(); ?>
     </body>
