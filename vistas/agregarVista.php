@@ -5,7 +5,7 @@
             <button type="button" class="sr-only" data-dismiss="modal">&times;</button>
             <h4 class="modal-title" style="color: rgb(95, 90, 90);"><strong><i>Agregar Contacto</i></strong></h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="modalbody">
         <div style="height: 43px;">
             <div><input type="text" name="nombre" placeholder="Nombre" class="inputtext" value="" style="float:left; width: 50%;" ></div>
             <div><input type="text" name="apellido" placeholder="Apellido" class="inputtext" value="" style="width: 50%;float: right;"></div>

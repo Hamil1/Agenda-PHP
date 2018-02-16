@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();  
-    
+    $('[data-toggle="tooltip"]').tooltip(); 
     $('button.guardarContacto').on('click',function(){
         var nombre = $("input[name='nombre']").val();
         var apellido = $("input[name='apellido']").val();
@@ -33,7 +32,6 @@ $(document).ready(function(){
         $.post('vistas/agregarVista.php',function(htmlExterno){
             $('#agregarContactoModal').html(htmlExterno);
         });
-        
     });
     
 });

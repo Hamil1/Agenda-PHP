@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        
+        <script type="text/javascript" src="js/Script.js"></script>
+    </head>
     <body>
         <div id="agregarContacto">
             <span data-toggle="tooltip" data-placement="bottom" title="Agregar">
