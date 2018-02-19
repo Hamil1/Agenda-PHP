@@ -1,6 +1,14 @@
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
-    $('button.guardarContacto').on('click',function(){
+    
+    //Esto es para cuando cargue la pagina se carguq la vista de gestionar contactos
+    var funcion = 'contactosVista';
+       $.post('controladores/principalControlador.php',{funcion:funcion},function(tablaContactos){
+           $('div#tablaContactos').html(tablaContactos);
+       });
+       
+    //Esto es para guardar un contacto
+    $(document).on('click','button.guardarContacto',function(){
         var nombre = $("input[name='nombre']").val();
         var apellido = $("input[name='apellido']").val();
         var telefono = $("input[name='telefono']").val();
@@ -20,19 +28,23 @@ $(document).ready(function(){
         //Para recargar la página
         location.reload();
     });
-    
-    $('button#editbutton').on('click',function(){
+    /*
+    $(document).on('click','button#editbutton',function(){
         var id = $(this).attr('idcontacto');
         $.post('vistas/editVista.php',{id:id},function(htmlExterno){
             $('#editarContactoModal').html(htmlExterno);
         });
     });
     
-    $('button#agregar').on('click',function(){
+    $(document).on('click','button#agregar',function(){
         $.post('vistas/agregarVista.php',function(htmlExterno){
             $('#agregarContactoModal').html(htmlExterno);
         });
     });
-    
+    */
+   
+   
+       
+   
 });
 

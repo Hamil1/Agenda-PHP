@@ -1,7 +1,19 @@
-<?php 
+<?php /*
+    Obteniendo el id del contacto
     $id = $_POST['id'];
-    
-?>
+    //Obteniendo los datos del contacto por su id
+    require_once 'modelos/contactosModelo.php';
+    $contactos = new contactosModelo();
+    $registro = $contactos->getContacto($id);
+    foreach($registro as $contacto){
+        $nombre = $contacto["nombre"];
+        $apellido = $contacto["apellido"];
+        $telefono = $contacto["telefono"];
+        $celular = $contacto["celular"];
+        $direccion = $contacto["direccion"];
+        $correo = $contacto["correo"];
+    }
+*/?>
     <input type="hidden" value="<?= $id ?>"/>
         <div class="modal-dialog">
              <!-- Modal content-->
@@ -12,17 +24,17 @@
                 </div>
                 <div class="modal-body">
                 <div style="height: 43px;">
-                    <div><input type="text" name="nombre" placeholder="Nombre" class="inputtext" value="" style="float:left; width: 50%;" ></div>
-                    <div><input type="text" name="apellido" placeholder="Apellido" class="inputtext" value="" style="width: 50%;float: right;"></div>
+                    <div><input type="text" name="nombre" placeholder="Nombre" class="inputtext" value="<?= $nombre ?>" style="float:left; width: 50%;" ></div>
+                    <div><input type="text" name="apellido" placeholder="Apellido" class="inputtext" value="<?= $apellido ?>" style="width: 50%;float: right;"></div>
                 </div>	
                 <div style="height: 43px;">
-                    <div><input type="text" name="telefono" placeholder="Telefono" class="inputtext" value="" style="float:left; width: 50%;" ></div>
-                    <div><input type="text" name="celular" placeholder="Celular" class="inputtext" value="" style="width: 50%;float: right;"></div>
+                    <div><input type="text" name="telefono" placeholder="Telefono" class="inputtext" value="<?= $telefono ?>" style="float:left; width: 50%;" ></div>
+                    <div><input type="text" name="celular" placeholder="Celular" class="inputtext" value="<?= $celular ?>" style="width: 50%;float: right;"></div>
                 </div>
 
                 <div style="height: 80px;">
-                    <div><input type="text" name="direccion" placeholder="Dirección" class="inputtext" value="" style="float:left; width: 50%;" ></div>
-                    <div><input type="text" name="correo" placeholder="Correo" class="inputtext" value="" style="width: 50%;float: right;"></div>
+                    <div><input type="text" name="direccion" placeholder="Dirección" class="inputtext" value="<?= $direccion ?>" style="float:left; width: 50%;" ></div>
+                    <div><input type="text" name="correo" placeholder="Correo" class="inputtext" value="<?= $correo ?>" style="width: 50%;float: right;"></div>
                 </div>
 
                 </div>

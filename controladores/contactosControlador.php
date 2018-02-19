@@ -11,11 +11,19 @@
  * @author hamil
  */
 class contactosControlador {
+    //constructor
     public function __construct() {
-        require_once("modelos/contactosModelo.php");
-        //Dependiendo de la condicion que venga del cliente se ejecutará un método
-        if(isset($_POST['action']) && !empty($_POST['action'])){
-                $this->guardarContacto();
+        echo "<script>alert('Esta entrando al controlador')</script>";
+        require_once("../modelos/contactosModelo.php");
+        
+        //Dependiendo de la condicion que venga del cliente se ejecutará una funcion
+        if(isset($_POST['funcion']) && !empty($_POST['funcion'])){
+            
+            switch ($_POST['funcion']){
+                case 'contactosVista': $this->contactosVista(); break;
+                case 'guardarContacto': $this->guardarContacto(); break;
+                
+            }
         }
     }
     //Funcion para traer la vista con los contactos
@@ -25,7 +33,7 @@ class contactosControlador {
         //Inicializando variables
         $colores = array("0"=>"","1"=>"success","2"=>"danger","3"=>"info","4"=>"warning","5"=>"active");
         $i = 0;
-        require_once 'vistas/gestionarVista.php';
+        include_once '../vistas/gestionarVista.php';
     }
     
     //Funcion para guardar los datos de contacto que vienen del cliente

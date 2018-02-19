@@ -15,7 +15,7 @@ class contactosModelo {
     private $db;
     private $contactos;
     public function __construct() {
-        require_once 'modelos/conexionModelo.php';
+        require_once 'conexionModelo.php';
         $this->db = conexionModelo::conectar();
         $this->contactos = array();
     }
