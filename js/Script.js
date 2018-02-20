@@ -20,10 +20,8 @@ $(document).ready(function(){
         $.post('controladores/principalControlador.php',{nombre:nombre,apellido:apellido,telefono:telefono,
             celular:celular,direccion:direccion,correo:correo,funcion:funcion})
                 .done(function(){
-                    swal("Guardado!", "", "success");
+                    swal("Guardado!", "", "success").then(valor => {if(valor){recargar(0);}});
                 });
-                recargar(1800);
-        
     });
         
     //Funcion para recargar la pagina
@@ -47,10 +45,10 @@ $(document).ready(function(){
    
    $(document).on('click','button#eliminarboton',function(){
         swal({
-          title: "Estas seguro?",
+          title: "Desea eliminar?",
           text: "",
           icon: "warning",
-          buttons: {cancel: "Cancelar",confirm:"Eliminar"},
+          buttons: {cancel: "No",confirm:"Si"},
           dangerMode: true,
         }).then(valor => {
             if(valor) {
@@ -61,14 +59,12 @@ $(document).ready(function(){
                     title: "Eliminado!",
                     text: "",
                     icon: "success",
-                }).then(valor2 => {
-                    if(valor2){
-                       return recargar(0);
-                    }
+                }).then(valor2 => {if(valor2){return recargar(0);}
                 });
             }
         });
     });
+    
    }); //Cierre del ready()
 
 
