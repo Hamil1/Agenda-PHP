@@ -53,6 +53,6 @@ class contactosModelo {
     }
     
     public function borrarContacto($id){
-        $consulta = $this->db->query("DELETE FROM WHERE id = ".$id);
+        $consulta = $this->db->query("DELETE FROM contactos WHERE id = ".$id);
     }
 }

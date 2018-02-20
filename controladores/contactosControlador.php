@@ -22,6 +22,7 @@ class contactosControlador {
                 case 'contactosVista': $this->gestionarContactos(); break;
                 case 'guardarContacto': $this->guardarContacto(); break;
                 case 'editarContacto': $this->editarContacto(); break;
+                case 'eliminarContacto': $this->eliminarContacto(); break;
             }
         }
     }
@@ -65,7 +66,7 @@ class contactosControlador {
     }
     
     //Funcion para eliminar un contacto
-    public function borrarContacto(){
+    public function eliminarContacto(){
         $id = $_POST['id'];
         $contacto = new contactosModelo();
         //Borrando un contacto

@@ -54,6 +54,9 @@ $(document).ready(function(){
           dangerMode: true,
         }).then(valor => {
             if(valor) {
+                var id = $(this).attr('idcontacto');
+                var funcion = 'eliminarContacto';
+                $.post('controladores/principalControlador.php',{id:id, funcion:funcion});
                 swal({
                     title: "Eliminado!",
                     text: "",
