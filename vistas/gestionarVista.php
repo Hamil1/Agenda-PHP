@@ -38,7 +38,10 @@
                     <td id=""><strong><?= $contacto["celular"] ?></strong></td>
                     <td id=""><strong><?= $contacto["direccion"] ?></strong></td>
                     <td id=""><strong><?= $contacto["correo"] ?></strong></td>
-                    <td ><button data-toggle="tooltip" title="Editar" id="editbutton" idcontacto="<?= $contacto["id"] ?>"><a class="fa fa-pencil hipervinculo" idcontacto="<?= $contacto["id"] ?>" data-toggle="modal" data-target="#editarContactoModal"></a></button></td>
+                    <td >
+                        <button data-toggle="tooltip" title="Editar" id="editbutton" class="accionboton" idcontacto="<?= $contacto["id"] ?>"><a class="fa fa-pencil hipervinculo" idcontacto="<?= $contacto["id"] ?>" data-toggle="modal" data-target="#editarContactoModal"></a></button>
+                        <button data-toggle="tooltip" title="Eliminar" id="eliminarboton" class="accionboton" idcontacto="<?= $contacto["id"] ?>"><a class="fa fa-trash hipervinculo" idcontacto="<?= $contacto["id"] ?>"></a></button>
+                    </td>
                 </tr>
                <?php } ?>
             </tbody>

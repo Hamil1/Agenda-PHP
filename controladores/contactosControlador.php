@@ -63,4 +63,12 @@ class contactosControlador {
         }
         include_once '../vistas/editVista.php';
     }
+    
+    //Funcion para eliminar un contacto
+    public function borrarContacto(){
+        $id = $_POST['id'];
+        $contacto = new contactosModelo();
+        //Borrando un contacto
+        $contacto->borrarContacto($id);
+    }
 }

@@ -25,7 +25,7 @@ a#agregar{
 }
 
 
-#editbutton{
+button.accionboton{
     border: none;
     background-color: transparent;
 }

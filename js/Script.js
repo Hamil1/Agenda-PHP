@@ -22,9 +22,14 @@ $(document).ready(function(){
                 .done(function(){
                     swal("Guardado!", "", "success");
                 });
-        //Para recargar la página
-        setTimeout(function(){location.reload();},1800);
+                recargar(1800);
+        
     });
+        
+    //Funcion para recargar la pagina
+    function recargar(tiempo){
+       setTimeout(function(){location.reload();},tiempo); 
+    }
     
     $(document).on('click','button#editbutton',function(){
         var id = $(this).attr('idcontacto');
@@ -40,9 +45,27 @@ $(document).ready(function(){
         });
     });   
    
-   $.post( "test.php", { name: "John", time: "2pm" })
-  .done(function( data ) {
-    alert( "Data Loaded: " + data );
-  });
-});
+   $(document).on('click','button#eliminarboton',function(){
+        swal({
+          title: "Estas seguro?",
+          text: "",
+          icon: "warning",
+          buttons: {cancel: "Cancelar",confirm:"Eliminar"},
+          dangerMode: true,
+        }).then(valor => {
+            if(valor) {
+                swal({
+                    title: "Eliminado!",
+                    text: "",
+                    icon: "success",
+                }).then(valor2 => {
+                    if(valor2){
+                       return recargar(0);
+                    }
+                });
+            }
+        });
+    });
+   }); //Cierre del ready()
+
 
