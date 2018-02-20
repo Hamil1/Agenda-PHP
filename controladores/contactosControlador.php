@@ -13,21 +13,20 @@
 class contactosControlador {
     //constructor
     public function __construct() {
-        echo "<script>alert('Esta entrando al controlador')</script>";
         require_once("../modelos/contactosModelo.php");
         
         //Dependiendo de la condicion que venga del cliente se ejecutará una funcion
         if(isset($_POST['funcion']) && !empty($_POST['funcion'])){
             
             switch ($_POST['funcion']){
-                case 'contactosVista': $this->contactosVista(); break;
+                case 'contactosVista': $this->gestionarContactos(); break;
                 case 'guardarContacto': $this->guardarContacto(); break;
-                
+                case 'editarContacto': $this->editarContacto(); break;
             }
         }
     }
     //Funcion para traer la vista con los contactos
-    public function contactosVista(){
+    public function gestionarContactos(){
         $contactos = new contactosModelo();
         $contactos = $contactos->getContactos();
         //Inicializando variables
@@ -46,5 +45,22 @@ class contactosControlador {
         $correo = $_POST['correo'];
         $contactos = new contactosModelo();
         $contactos->insertContacto($nombre, $apellido, $telefono, $celular, $direccion, $correo);
+    }
+    
+    //Funcion para cargar los datos en la vista de editar contacto
+    public function editarContacto(){
+        $id = $_POST['id'];
+        $contacto = new contactosModelo();
+        $registro = $contacto->getContacto($id);
+        //Obteniendo los datos del contacto filtrado
+        foreach($registro as $contacto){
+            $nombre = $contacto["nombre"];
+            $apellido = $contacto["apellido"];
+            $telefono = $contacto["telefono"];
+            $celular = $contacto["celular"];
+            $direccion = $contacto["direccion"];
+            $correo = $contacto["correo"];
+        }
+        include_once '../vistas/editVista.php';
     }
 }

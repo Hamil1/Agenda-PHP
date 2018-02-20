@@ -45,7 +45,10 @@ class contactosModelo {
     //Método para obtener un contacto en especifico
     public function getContacto($id){
         $consulta = $this->db->query("SELECT * FROM contactos WHERE id = ".$id);
-        $fila = $consulta->fetch(PDO::FETCH_ASSOC);
-        return $fila;
+        //Bucle para obtener los registros
+        while($filas = $consulta->fetch(PDO::FETCH_ASSOC)){
+            $this->contactos[] = $filas;
+        }
+        return $this->contactos;
     }
 }

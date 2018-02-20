@@ -1,20 +1,4 @@
-<?php /*
-    Obteniendo el id del contacto
-    $id = $_POST['id'];
-    //Obteniendo los datos del contacto por su id
-    require_once 'modelos/contactosModelo.php';
-    $contactos = new contactosModelo();
-    $registro = $contactos->getContacto($id);
-    foreach($registro as $contacto){
-        $nombre = $contacto["nombre"];
-        $apellido = $contacto["apellido"];
-        $telefono = $contacto["telefono"];
-        $celular = $contacto["celular"];
-        $direccion = $contacto["direccion"];
-        $correo = $contacto["correo"];
-    }
-*/?>
-    <input type="hidden" value="<?= $id ?>"/>
+ <input type="hidden" value="<?= $id ?>"/>
         <div class="modal-dialog">
              <!-- Modal content-->
             <div class="modal-content">

@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
-    
-    //Esto es para cuando cargue la pagina se carguq la vista de gestionar contactos
+    //Esto es para cuando cargue la pagina se cargue la vista de gestionar contactos
     var funcion = 'contactosVista';
        $.post('controladores/principalControlador.php',{funcion:funcion},function(tablaContactos){
            $('div#tablaContactos').html(tablaContactos);
@@ -17,21 +16,20 @@ $(document).ready(function(){
         var correo = $("input[name='correo']").val();
         var action = "add";
         //Mandando la informacion del cliente al servidor
-        $.ajax({
-            type: "POST",
-            url: "controladores/add.php",
-            data: "action="+action+"&nombre="+nombre+"&apellido="+apellido+"&telefono="+telefono+"&celular="+celular+"&direccion="+direccion+"&correo="+correo,
-            success: function(msg){
-                alert('Guardado!');
-            }
-        });
+        var funcion = 'guardarContacto';
+        $.post('controladores/principalControlador.php',{nombre:nombre,apellido:apellido,telefono:telefono,
+            celular:celular,direccion:direccion,correo:correo,funcion:funcion})
+                .done(function(){
+                    swal("Guardado!", "", "success");
+                });
         //Para recargar la página
-        location.reload();
+        setTimeout(function(){location.reload();},1800);
     });
-    /*
+    
     $(document).on('click','button#editbutton',function(){
         var id = $(this).attr('idcontacto');
-        $.post('vistas/editVista.php',{id:id},function(htmlExterno){
+        var funcion = 'editarContacto';
+        $.post('controladores/principalControlador.php',{id:id, funcion:funcion},function(htmlExterno){
             $('#editarContactoModal').html(htmlExterno);
         });
     });
@@ -40,11 +38,11 @@ $(document).ready(function(){
         $.post('vistas/agregarVista.php',function(htmlExterno){
             $('#agregarContactoModal').html(htmlExterno);
         });
-    });
-    */
+    });   
    
-   
-       
-   
+   $.post( "test.php", { name: "John", time: "2pm" })
+  .done(function( data ) {
+    alert( "Data Loaded: " + data );
+  });
 });
 
