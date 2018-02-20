@@ -40,7 +40,6 @@ class contactosModelo {
         $stmt->bindParam(5, $direccion);
         $stmt->bindParam(6, $correo);
         $stmt->execute();
-        echo 'Insert Exitoso en el controlador';
     }
     //Método para obtener un contacto en especifico
     public function getContacto($id){
@@ -54,5 +53,16 @@ class contactosModelo {
     
     public function borrarContacto($id){
         $consulta = $this->db->query("DELETE FROM contactos WHERE id = ".$id);
+    }
+    
+    public function updateContacto($id, $nombre, $apellido, $telefono, $celular, $direccion, $correo){
+        $stmt = $this->db->query("UPDATE contactos SET nombre = ?, apellido = ?, telefono = ?, celular = ?, direccion = ?, correo = ?, status_color = '' WHERE id = ".$id);
+        $stmt->bindParam(1, $nombre);
+        $stmt->bindParam(2, $apellido);
+        $stmt->bindParam(3, $telefono);
+        $stmt->bindParam(4, $celular);
+        $stmt->bindParam(5, $direccion);
+        $stmt->bindParam(6, $correo);
+        $stmt->execute();
     }
 }

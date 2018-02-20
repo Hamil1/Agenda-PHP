@@ -1,4 +1,4 @@
- <input type="hidden" value="<?= $id ?>"/>
+<input name="id" type="hidden" value="<?= $id ?>"/>
         <div class="modal-dialog">
              <!-- Modal content-->
             <div class="modal-content">
@@ -23,7 +23,7 @@
 
                 </div>
                 <div class="modal-footer" style="border: 0;    margin-bottom: -8px; margin-right: -2px;">
-                    <button type="button" class="btn btn-default editarContacto" data-dismiss="modal" style="background-color:rgb(113, 188, 222);color:white;">Guardar</button>
+                    <button type="button" class="btn btn-default" id="editarContacto" data-dismiss="modal" style="background-color:rgb(113, 188, 222);color:white;">Guardar</button>
                     <button type="button" class="btn btn-default cerrarEditar" data-dismiss="modal" style="background-color:rgb(247, 81, 81);color:white;">Cerrar</button>
                 </div>
             </div>

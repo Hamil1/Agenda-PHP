@@ -21,6 +21,7 @@ class contactosControlador {
             switch ($_POST['funcion']){
                 case 'contactosVista': $this->gestionarContactos(); break;
                 case 'guardarContacto': $this->guardarContacto(); break;
+                case 'editarVistaContacto':$this->editarVistaContacto(); break;
                 case 'editarContacto': $this->editarContacto(); break;
                 case 'eliminarContacto': $this->eliminarContacto(); break;
             }
@@ -49,7 +50,7 @@ class contactosControlador {
     }
     
     //Funcion para cargar los datos en la vista de editar contacto
-    public function editarContacto(){
+    public function editarVistaContacto(){
         $id = $_POST['id'];
         $contacto = new contactosModelo();
         $registro = $contacto->getContacto($id);
@@ -71,5 +72,21 @@ class contactosControlador {
         $contacto = new contactosModelo();
         //Borrando un contacto
         $contacto->borrarContacto($id);
+    }
+    
+    //Funcion para editar un contacto
+    public function editarContacto(){
+        //Seteando variables
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $telefono = $_POST['telefono'];
+        $celular = $_POST['celular'];
+        $direccion = $_POST['direccion'];
+        $correo = $_POST['correo'];
+        $contacto = new contactosModelo();
+        //Haciendo update al registro
+        $contacto->updateContacto($id, $nombre, $apellido, $telefono, $celular, $direccion, $correo);
+        echo "<script>swal('Update exitoso!');</script>";
     }
 }
