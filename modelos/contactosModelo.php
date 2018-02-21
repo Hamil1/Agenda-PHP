@@ -56,7 +56,7 @@ class contactosModelo {
     }
     
     public function updateContacto($id, $nombre, $apellido, $telefono, $celular, $direccion, $correo){
-        $stmt = $this->db->query("UPDATE contactos SET nombre = ?, apellido = ?, telefono = ?, celular = ?, direccion = ?, correo = ?, status_color = '' WHERE id = ".$id);
+        $stmt = $this->db->prepare("UPDATE contactos SET nombre = ?, apellido = ?, telefono = ?, celular = ?, direccion = ?, correo = ?, status_color = '' WHERE id = ".$id);
         $stmt->bindParam(1, $nombre);
         $stmt->bindParam(2, $apellido);
         $stmt->bindParam(3, $telefono);
