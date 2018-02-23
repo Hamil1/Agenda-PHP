@@ -47,7 +47,6 @@ class contactosControlador {
         $correo = $_POST['correo'];
         $contactos = new contactosModelo();
         $contactos->insertContacto($nombre, $apellido, $telefono, $celular, $direccion, $correo);
-        $this->mensajeSweetAlert("agregar");
     }
     
     //Funcion para cargar los datos en la vista de editar contacto
@@ -88,13 +87,7 @@ class contactosControlador {
         $contacto = new contactosModelo();
         //Haciendo update al registro
         $contacto->updateContacto($id, $nombre, $apellido, $telefono, $celular, $direccion, $correo);
-        $this->mensajeSweetAlert("editar");
-    }
-    
-    //Función para imprimir el mensaje javascript
-    private function mensajeSweetAlert($opcion){
-        $mensaje = array("mensaje"=>"Editado!","submensaje"=>"","icono"=>"success");
-        echo json_encode($mensaje);
+        
         
     }
 }

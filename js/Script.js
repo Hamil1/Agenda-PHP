@@ -18,8 +18,8 @@ $(document).ready(function(){
         var funcion = "guardarContacto";
         $.post('controladores/principalControlador.php',{nombre:nombre,apellido:apellido,telefono:telefono,
             celular:celular,direccion:direccion,correo:correo,funcion:funcion})
-                .done(function(){
-                   // swal("Guardado!", "", "success").then(valor => {if(valor){recargar(0);}});
+                .done(function(data){
+                    sweet(data);
                 });   
     });
     
@@ -37,9 +37,7 @@ $(document).ready(function(){
         $.post('controladores/principalControlador.php',{id:id,nombre:nombre,apellido:apellido,telefono:telefono,
             celular:celular,direccion:direccion,correo:correo,funcion:funcion})
                 .done(function(data){
-                    var data = $.parseJSON(data);
-                    swal(data.mensaje, data.submensaje, data.icono).then(valor => {if(valor){recargar(0);}});
-            alert(data);
+                    sweet(data);
                 });   
     });
         
@@ -76,16 +74,28 @@ $(document).ready(function(){
             if(valor) {
                 var id = $(this).attr('idcontacto');
                 var funcion = 'eliminarContacto';
-                $.post('controladores/principalControlador.php',{id:id, funcion:funcion});
-                swal({
-                    title: "Eliminado!",
-                    text: "",
-                    icon: "success",
-                }).then(valor2 => {if(valor2){return recargar(0);}
-                });
+                $.post('controladores/principalControlador.php',{id:id, funcion:funcion})
+                    .done(function(data){
+                        sweet(data);
+                    });
             }
         });
     });
+    
+    function sweet(data){
+        var data = $.parseJSON(data); 
+        swal({
+            title: data.mensaje,
+            text: data.submensaje,
+            icon: data.icono,
+            dangerMode: data.danger,
+        }).then(function(valor){
+            if(valor){recargar(0);}
+        });
+        if(data.danger){
+            $('div.swal-overlay').css('background-color','#e6494257');
+        }
+    }
     
    }); //Cierre del ready()
 
