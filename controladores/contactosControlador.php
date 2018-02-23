@@ -95,12 +95,6 @@ class contactosControlador {
     private function mensajeSweetAlert($opcion){
         $mensaje = array("mensaje"=>"Editado!","submensaje"=>"","icono"=>"success");
         echo json_encode($mensaje);
-//        echo "<script>function recargar(tiempo){setTimeout(function(){location.reload();},1800);}</script>";
-//        if($opcion == 'editar'){
-//            echo "<script>swal('Editado!', '', 'success').then(valor => {if(valor){recargar(0);}});</script>";
-//        }else if($opcion == 'agregar'){
-//            echo "<script>swal('Guardado!', '', 'success').then(valor => {if(valor){recargar(0);}});</script>";
-//        }
         
     }
 }
