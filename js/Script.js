@@ -19,7 +19,7 @@ $(document).ready(function(){
         $.post('controladores/principalControlador.php',{nombre:nombre,apellido:apellido,telefono:telefono,
             celular:celular,direccion:direccion,correo:correo,funcion:funcion})
                 .done(function(){
-                    swal("Guardado!", "", "success").then(valor => {if(valor){recargar(0);}});
+                   // swal("Guardado!", "", "success").then(valor => {if(valor){recargar(0);}});
                 });   
     });
     
@@ -36,8 +36,10 @@ $(document).ready(function(){
         var funcion = "editarContacto";
         $.post('controladores/principalControlador.php',{id:id,nombre:nombre,apellido:apellido,telefono:telefono,
             celular:celular,direccion:direccion,correo:correo,funcion:funcion})
-                .done(function(){
-                    swal("Editado!", "", "success").then(valor => {if(valor){recargar(0);}});
+                .done(function(data){
+                    var data = $.parseJSON(data);
+                    swal(data.mensaje, data.submensaje, data.icono).then(valor => {if(valor){recargar(0);}});
+            alert(data);
                 });   
     });
         
